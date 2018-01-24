@@ -1,0 +1,23 @@
+---
+
+- name: Update apt-cache
+  apt: update_cache=yes
+
+- name: Installing pre-requisite packages needed for nagios plugins 
+  apt: name={{ item }} state=installed
+  with_items:
+       - autoconf
+       - gcc
+       - libc6
+       - libmcrypt-dev
+       - make
+       - libssl-dev
+       - wget
+       - bc
+       - unzip
+       - gawk
+       - dc
+       - build-essential
+       - snmp
+       - libnet-snmp-perl 
+       - gettext

@@ -1,0 +1,8 @@
+---
+# defaults file for ansible-nagios_plugins
+
+nagios_plugins_url: "https://nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz"
+nagios_plugins_build_dir: "/opt/nagios-plugins-2.2.1"
+nagios_dir: "/usr/local/nagios"
+nagios_conf_dir: "/usr/local/nagios/etc"
+nagios_plugins_dir: "/usr/local/nagios/libexec"

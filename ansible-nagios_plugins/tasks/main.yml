@@ -1,0 +1,9 @@
+---
+# tasks file for ansible-nagios_plugins
+# installing packages, which are needed for the nagios installation and in running
+
+- name: installing dependent packages
+  include: "packages-{{ ansible_os_family }}.yml"
+
+- name: download and install nagios-plugins 
+  include: "download-compile.yml" 

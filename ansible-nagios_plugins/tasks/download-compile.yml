@@ -1,0 +1,30 @@
+---
+
+- name: Download nagios plugins source tar ball 
+  get_url: 
+    url: "{{ nagios_plugins_url }} "
+    dest: /opt/
+
+- name: Unarchive the downloaded source tar ball
+  unarchive: 
+    src: /opt/nagios-plugins-2.2.1.tar.gz
+    dest: /opt/
+    remote_src: yes
+    copy: no 
+
+- name: Compiling the nagios-core source
+  command: " {{ item }} chdir={{ nagios_plugins_build_dir }}"
+  with_items: 
+#      - ./tools/setup
+      - ./configure
+
+- name: Installing by make
+  command: make
+  args: 
+     chdir: "{{ nagios_plugins_build_dir }}"
+
+- name: Installing by make install
+  command: make install
+  args:
+     chdir: "{{ nagios_plugins_build_dir }}"
+
